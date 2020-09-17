@@ -1,5 +1,5 @@
-FROM       python:3
-LABEL      maintainer="Sawood Alam <@ibnesayeed>"
+FROM       lqwangxg/python
+LABEL      maintainer="lqwangxg<@gmail.com>"
 
 WORKDIR    /app
 COPY       requirements.txt /app/
