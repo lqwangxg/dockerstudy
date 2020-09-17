@@ -2,14 +2,14 @@ version: '3'
 
 services:
   api:
-    image: linkextractor-api:step5-python
+    image: study5api
     build: ./api
     ports:
       - "5000:5000"
     environment:
       - REDIS_URL=redis://redis:6379
   web:
-    image: linkextractor-web:step5-php
+    image: study5php
     build: ./www
     ports:
       - "80:80"
@@ -17,3 +17,11 @@ services:
       - API_ENDPOINT=http://api:5000/api/
   redis:
     image: redis
+  web2:
+    image: php:7-apache
+    ports:
+      - "8080:80"
+    environment:
+      - API_ENDPOINT=http://api/5000/api
+    volumes:
+      - ./www:/var/www/html
